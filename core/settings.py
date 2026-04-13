@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -115,3 +116,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Default primary key field type
+# https://docs.djangoproject.com/en/6.0/ref/settings/#default-auto-field
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# --- CONFIGURACIONES DEL PUNTO DE VENTA ---
+
+# 1. Le decimos a Django que use tu modelo de usuario escalable
+AUTH_USER_MODEL = 'users.CustomUser'
+
+# 2. El semáforo: A dónde enviar al usuario al iniciar sesión
+LOGIN_REDIRECT_URL = '/enrutador/'
+
+# 3. A dónde enviar al usuario al cerrar sesión
+LOGOUT_REDIRECT_URL = '/'
